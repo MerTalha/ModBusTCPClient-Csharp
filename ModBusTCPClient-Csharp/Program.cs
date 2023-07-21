@@ -15,16 +15,16 @@ namespace ModBusTCPClient_Csharp
                 0x00,0x01, // işlem tanımlayıcı
                 0x00,0x00, // Protokol Tanımlaycı (modbus)
                 0x00,0x06, // PDU uzunluğu
-                0x11,      // Adres (17 decimal)
+                0x65,      // Adres (100 decimal)
                 0x03,      // Register oku komutu
-                0x00,0x00,  // 0 ıncı registerdan itibaren    
+                0x00,0x64,  // 0 ıncı registerdan itibaren    
                 0x00,0x01  // Sadece 1 register (2 byte)  
             };
             Byte[] rData = new byte[11];
             TcpClient tcpClient = new TcpClient();
             try
             {
-                tcpClient.Connect("127.0.0.1", 502);
+                tcpClient.Connect("192.168.1.5", 502);
                 if (tcpClient != null)
                 {
                     if (tcpClient.Connected)
