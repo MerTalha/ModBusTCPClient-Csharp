@@ -12,13 +12,14 @@ namespace ModBusTCPClient_Csharp
         static void Main(string[] args)
         {
             Byte[] data ={
-                0x00,0x01, // işlem tanımlayıcı
-                0x00,0x00, // Protokol Tanımlaycı (modbus)
-                0x00,0x06, // PDU uzunluğu
-                0x11,      // Adres (100 decimal)
-                0x03,      // Register oku komutu
-                0x00,0x64,  // 0 ıncı registerdan itibaren    
-                0x00,0x01  // Sadece 1 register (2 byte)  
+                0x00,0x01,   // Operation Identifier
+                0x00,0x00,   // Protocol Identifier (Modbus)
+                0x00,0x06,   // PDU Length
+                0x11,         // Address (Decimal 17)
+                0x03,         // Read Register Command
+                0x00,0x64,    // Start Reading from Register 0
+                0x00,0x01     // Read Only 1 Register (2 bytes)
+
             };
             Byte[] rData = new byte[11];
             TcpClient tcpClient = new TcpClient();
